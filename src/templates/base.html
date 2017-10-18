@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>TheShop</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/1c60a6053f.js"></script>
+        <script src="https://tympanus.net/Tutorials/CaptionHoverEffects/js/modernizr.custom.js"></script>
+        <script type="text/javascript">var URL = "{% url 'items:update_rating' %}";</script>
+
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavBar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="{% url 'user_account:index' %}">TheShop</a>
+			</div>
+			<div class="collapse navbar-collapse" id="topNavBar">
+				<ul class="nav navbar-nav pull-right">
+					{% if user.is_superuser %}
+						<li><a href="{% url 'items:add' %}">Add items</a></li>
+					{% endif %}
+					{% if not user.is_authenticated %}
+					<li class=""><a href="{% url 'user_account:login' %}">Login</a></li>
+                    <li class=""><a href="{% url 'user_account:reg_home' %}">Register</a></li>
+					{% endif %}
+					{% if user.is_authenticated %}
+				        {% if user.first_name %}
+							<li class=""><a href="">{{ user.first_name }} {{ user.last_name }}</a></li>
+						{% else %}
+							<li class=""><a href="">{{ user.username }}</a></li>
+						{% endif %}
+					<li class=""><a href="{% url 'user_account:logout' %}">Logout</a></li>
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+	</nav>
+        <div class="container-fluid">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <script type="text/javascript">
+		    $.fn.stars = function() {
+		        return $(this).each(function() {
+		            var val = parseFloat($(this).html());
+		            var size = Math.max(0, (Math.min(5, val))) * 16;
+		            var $span = $('<span />').width(size);
+		            $(this).html($span);
+		        });
+		    }
+		    $( document ).ready(function() {
+		        $('span.stars').stars();
+		    });
+		</script>
+    </body>
+</html>

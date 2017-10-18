@@ -1,0 +1,40 @@
+span.stars, span.stars span {
+	display: block;
+	background: url('/static/stars.png') 0 -16px repeat-x;
+	width: 80px;
+	height: 16px;
+}
+
+span.stars span {
+	background-position: 0 0;
+}
+
+.jumbotron {
+	background-color: white !important;
+	border-radius: 0 !important;
+}
+
+.jmb {
+	min-height: 900px;
+}
+
+.jmb-main {
+	min-height: 500px;
+}
+
+.thumbnail {
+	border: 1px solid #EEE !important;
+}
+
+.thumbnail:hover {
+	background-color: #EEE !important;
+}
+
+.caption {
+	margin-top: 10px;
+	background-color: #EEE;
+}
+
+body {
+  background-color: #EEE !important;
+}

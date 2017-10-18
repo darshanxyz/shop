@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col-xs-12">
+	<div class="jumbotron jmb-main">
+		<div class="col-xs-12 text-center">
+			<h1>
+				Amazing deals this Diwali
+				<br>
+				<span class="lead">Shop now at <strong>TheShop</strong> for amazing discounts.</span>
+			</h1>
+		</div>
+	</div>
+</div>
+<div class="col-xs-3">
+	<div class="jumbotron jmb text-center">
+		<p>Space for filters</p>
+		<form method="GET">
+			<input class="form-control" type="text" name="search_query" value="{{ request.GET.search_query }}" placeholder="Search Items"> <br>
+			<input type="submit" name="" value="Search" class="btn btn-primary form-control">
+		</form>
+	</div>
+</div>
+
+<div class="col-xs-9">
+	{% for c in categories %}
+	<div class="jumbotron jmb">
+		<div class="container">
+		<h3>{{ c.title }}s</h3>
+		{% for item in items %}
+			{% if item.category.title == c.title %}
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<br>
+						<a href="{{ item.get_absolute_url }}"><img src="{{ item.image.url }}"></a>
+						<div class="caption text-center">
+							<h3>{{ item.title }}</h3> by <b>{{ item.brand }}</b>
+							<p>Rs. {{ item.price }} | <span class="stars" style="display:inline-block;">{{ item.rating }}</span></p>
+							<a class="btn btn-success">Buy</a> <a class="btn btn-warning" href="{{ item.get_absolute_url }}">Details</a>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
