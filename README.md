@@ -1,7 +1,7 @@
 # shop
 Mock eCommerce website crafted using Django.
 <hr>
-## Key Features
+## Features
 <ul>
   <li>User registration</li>
   <li>Login</li>
