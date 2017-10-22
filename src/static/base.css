@@ -1,25 +1,3 @@
-  .success-box {
-  margin:50px 0;
-  padding:10px 10px;
-  border:1px solid #eee;
-  background:#f9f9f9;
-}
-
-.success-box img {
-  margin-right:10px;
-  display:inline-block;
-  vertical-align:top;
-}
-
-.success-box > div {
-  vertical-align:top;
-  display:inline-block;
-  color:#888;
-}
-
-
-
-/* Rating Star Widgets Style */
 .rating-stars ul {
   list-style-type:none;
   padding:0;
@@ -32,19 +10,17 @@
   
 }
 
-/* Idle State of the stars */
 .rating-stars ul > li.star > i.fa {
-  font-size:2.5em; /* Change the size of the stars */
-  color:#ccc; /* Color on idle state */
+  font-size:2.5em; 
+  color:#ccc; 
 }
 
-/* Hover state of the stars */
 .rating-stars ul > li.star.hover > i.fa {
   color:#FFCC36;
-  /*FFCC36*/
 }
 
-/* Selected state of the stars */
 .rating-stars ul > li.star.selected > i.fa {
   color:lightblue;
 }
+
+
