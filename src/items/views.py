@@ -8,8 +8,6 @@ from .models import Item, Category
 from .forms import ItemForm
 from django.views.decorators.csrf import csrf_exempt
 
-ratings = []
-
 def items(request):
     items = Item.objects.all()
     categories = Category.objects.all()

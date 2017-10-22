@@ -45,8 +45,6 @@ class LoginFormView(View):
 def logout(request):
     auth.logout(request)
     return redirect('items:items')
-    # return render(request, 'index.html', {})
 
 def index(request):
     return redirect('items:items')
-    # return render(request, 'index.html', {})
